@@ -1,9 +1,6 @@
-export const login = (user) => {
-  console.log('tamo aqui');
-  return {
-    type: 'LOGIN',
-    user,
-  };
-};
+export const login = (userInfo) => ({
+  type: 'LOGIN',
+  userInfo,
+});
 
 export default login;

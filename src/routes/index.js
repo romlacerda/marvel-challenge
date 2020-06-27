@@ -7,8 +7,12 @@ import AuthRoute from './AuthRoute';
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <Route component={Login} path="/" exact />
-      <Route component={Home} path="/login" exact />
+      <Route path="/login">
+        <Login />
+      </Route>
+      <AuthRoute path="/" exact>
+        <Home />
+      </AuthRoute>
     </Switch>
   </BrowserRouter>
 );
