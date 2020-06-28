@@ -30,7 +30,7 @@ const Navigation = ({ isLogged, setLogout }) => {
           <Grid item>
             <Box mt={1} display="flex">
               <Avatar alt={user.name} style={{ marginRight: '15px' }} />
-              <Typography variant="h6" style={{ marginTop: '3px' }}>
+              <Typography variant="h6" style={{ marginTop: '8px', fontSize: '1em' }}>
                 { user && user.name }
               </Typography>
             </Box>
