@@ -7,9 +7,10 @@ import ComicList from '../../components/ComicList';
 import { fetchCharacter, getComics } from '../../services/character';
 import CharacterContainer from '../../components/CharacterContainer';
 
-const Home = ({ user }) => {
+const Home = () => {
   const [character, setCharacter] = useState({});
   const [comics, setComics] = useState([]);
+  const user = JSON.parse(localStorage.getItem('loggedUser'));
 
   useEffect(() => {
     fetchCharacter(user.heroId).then((response) => {

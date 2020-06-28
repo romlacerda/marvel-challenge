@@ -2,10 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Route } from 'react-router';
 
-const AuthRoute = ({ isLogged, children, ...rest }) => (
-  <Route
-    {...rest}
-    render={
+const AuthRoute = ({ children, ...rest }) => {
+  const isLogged = Boolean(localStorage.getItem('isLogged'));
+  console.log(isLogged);
+  return (
+
+    <Route
+      {...rest}
+      render={
         () => (isLogged ? (
           children
         ) : (
@@ -16,14 +20,7 @@ const AuthRoute = ({ isLogged, children, ...rest }) => (
           />
         ))
     }
-  />
-);
-
-const mapStateToProps = (state) => {
-  const { isLogged } = state.loginReducer;
-  return {
-    isLogged,
-  };
+    />
+  );
 };
-
-export default connect(mapStateToProps)(AuthRoute);
+export default AuthRoute;

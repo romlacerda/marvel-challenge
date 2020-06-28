@@ -8,8 +8,9 @@ import {
 import StyledAppBar from '../../components/AppBar/style';
 import { logout } from '../../actions/loginActions';
 
-const Navigation = ({ user, isLogged, setLogout }) => {
+const Navigation = ({ isLogged, setLogout }) => {
   const history = useHistory();
+  const user = JSON.parse(localStorage.getItem('loggedUser'));
 
   function handleLogout() {
     setLogout();
