@@ -7,6 +7,9 @@ const theme = createMuiTheme({
     ].join(','),
   },
   palette: {
+    background: {
+      default: '#171717',
+    },
     primary: {
       main: '#e71923',
     },

@@ -39,7 +39,7 @@ const Login = ({ setLogin, isLogged }) => {
     const user = getUser({ userLogin, userPassword });
 
     if (user.length > 0) {
-      setLogin(user);
+      setLogin(user[0]);
     }
   }
 
