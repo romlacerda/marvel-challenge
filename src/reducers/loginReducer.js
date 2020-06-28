@@ -6,9 +6,19 @@ const initialState = {
 function loginReducer(state = initialState, action) {
   switch (action.type) {
     case 'LOGIN':
+      return {
+        ...state,
+        isLogged: true,
+        user: action.userInfo,
+      };
+    case 'LOGOUT':
     {
-      console.log(action);
-      return { ...state, isLogged: true, user: action.userInfo };
+      console.log('logou');
+      return {
+        ...state,
+        isLogged: false,
+        user: {},
+      };
     }
 
     default:

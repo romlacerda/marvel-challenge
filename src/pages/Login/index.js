@@ -4,9 +4,10 @@ import {
 } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
+import DoubleArrowIcon from '@material-ui/icons/DoubleArrow';
 import StyledTextField from '../../components/TextField/style';
 import StyledButton from '../../components/Button/style';
-import login from '../../actions/loginActions';
+import { login } from '../../actions/loginActions';
 import Alert from '../../components/Alert';
 import { getUser } from '../../helper/utils';
 import MarvelLogo from '../../assets/marvel.png';
@@ -71,7 +72,10 @@ const Login = ({ setLogin, isLogged }) => {
               <StyledTextField placeholder="Senha" variant="outlined" type="password" onChange={handleChange} name="password" value={userPassword} />
             </Box>
             <Box m={1} width={1}>
-              <StyledButton color="primary" variant="contained" type="submit">Entrar</StyledButton>
+              <StyledButton color="primary" variant="contained" type="submit">
+                <DoubleArrowIcon />
+                Entrar
+              </StyledButton>
             </Box>
             {error && (
             <Box m={1} width={1}>

@@ -3,4 +3,6 @@ export const login = (userInfo) => ({
   userInfo,
 });
 
-export default login;
+export const logout = () => ({
+  type: 'LOGOUT',
+});

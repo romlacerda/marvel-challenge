@@ -1,30 +1,50 @@
-import React from 'react';
-import Toolbar from '@material-ui/core/Toolbar';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import { useHistory } from 'react-router-dom';
+import {
+  Avatar, Box, Toolbar, Typography, Grid, IconButton,
+} from '@material-ui/core';
 import StyledAppBar from '../../components/AppBar/style';
+import { logout } from '../../actions/loginActions';
 
-const Navigation = ({ user }) => (
-  <StyledAppBar position="absolute" color="transparent">
-    <Toolbar>
-      <Grid container justify="space-between">
-        <Grid item>
-          <Typography variant="h6">
-            { user.name }
-          </Typography>
+const Navigation = ({ user, isLogged, setLogout }) => {
+  const history = useHistory();
+
+  function handleLogout() {
+    setLogout();
+  }
+
+  useEffect(() => {
+    if (!isLogged) {
+      history.push('/login');
+    }
+  }, [isLogged]);
+
+  return (
+    <StyledAppBar position="absolute" color="transparent">
+      <Toolbar>
+        <Grid container justify="space-between">
+          <Grid item>
+            <Box mt={1} display="flex">
+              <Avatar alt={user.name} style={{ marginRight: '15px' }} />
+              <Typography variant="h6" style={{ marginTop: '3px' }}>
+                { user && user.name }
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item>
+            <Box mt={1}>
+              <IconButton aria-label="logout" onClick={handleLogout}>
+                <ExitToAppIcon color="secondary" />
+              </IconButton>
+            </Box>
+          </Grid>
         </Grid>
-        <Grid item>
-          <Box mt={1}>
-            <ExitToAppIcon color="secondary" />
-          </Box>
-        </Grid>
-      </Grid>
-    </Toolbar>
-  </StyledAppBar>
-);
+      </Toolbar>
+    </StyledAppBar>
+  );
+};
 
 const mapStateToProps = (state) => {
   const { isLogged, user } = state.loginReducer;
@@ -34,4 +54,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Navigation);
+const mapDispatchToProps = (dispatch) => ({
+  setLogout: () => {
+    dispatch(logout());
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
