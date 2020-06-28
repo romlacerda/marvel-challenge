@@ -3,18 +3,23 @@ import {
   Grid, Typography, Box, CardActionArea, CardMedia, CardContent,
 } from '@material-ui/core';
 import { connect } from 'react-redux';
-import { fetchCharacter } from '../../services/character';
+import ComicList from '../../components/ComicList';
+import { fetchCharacter, getComics } from '../../services/character';
 import CharacterContainer from '../../components/CharacterContainer';
-import StyledComicCard from '../../components/ComicCard/style';
 
 const Home = ({ user }) => {
   const [character, setCharacter] = useState({});
+  const [comics, setComics] = useState([]);
 
   useEffect(() => {
     fetchCharacter(user.heroId).then((response) => {
       const char = response.data.data.results[0];
       setCharacter(char);
-      console.log(char);
+    });
+
+    getComics(user.heroId, 'modified').then((response) => {
+      const filteredComics = response.data.data.results;
+      setComics(filteredComics);
     });
   }, []);
 
@@ -32,24 +37,7 @@ const Home = ({ user }) => {
           )}
 
         <Grid item xs={12}>
-          { character && character.comics
-          && (
-            character.comics.items.map((item) => (
-              <StyledComicCard>
-                <CardActionArea>
-                  <CardMedia
-                    image="/static/images/cards/contemplative-reptile.jpg"
-                    title="Contemplative Reptile"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      { item.name }
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </StyledComicCard>
-            ))
-          )}
+          <ComicList comics={comics} />
         </Grid>
       </Grid>
     </Box>
