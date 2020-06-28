@@ -7,6 +7,9 @@ const theme = createMuiTheme({
     ].join(','),
   },
   palette: {
+    default: {
+      main: '#FFF',
+    },
     background: {
       default: '#171717',
     },
@@ -16,6 +19,7 @@ const theme = createMuiTheme({
     secondary: {
       main: '#b5bab9',
     },
+
   },
   overrides: {
     MuiTextField: {

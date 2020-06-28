@@ -1,18 +1,18 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
+import StyledAppBar from '../../components/AppBar/style';
 
 const Navigation = ({ user }) => (
-  <AppBar position="static">
+  <StyledAppBar position="absolute" color="transparent">
     <Toolbar>
       <Typography variant="h6">
         { user.name }
       </Typography>
     </Toolbar>
-  </AppBar>
+  </StyledAppBar>
 );
 
 const mapStateToProps = (state) => {
