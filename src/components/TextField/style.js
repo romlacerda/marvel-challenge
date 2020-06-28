@@ -6,6 +6,11 @@ const StyledTextField = styled(TextField)`
   border: 1px solid;
   background-color: #000000;
   border-radius: 5px;
+  color: #ffffff;
+
+  & input {
+    color: #FFFFFF;
+  }
 `;
 
 export default StyledTextField;
