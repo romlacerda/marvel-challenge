@@ -11,6 +11,7 @@ import { login } from '../../actions/loginActions';
 import Alert from '../../components/Alert';
 import getUser from '../../helper/utils';
 import MarvelLogo from '../../assets/marvel.png';
+import PropTypes from 'prop-types';
 
 const images = ['url(../xmen.jpg)', 'url(../spider.png)'];
 const randomNum = Math.floor(Math.random() * images.length);
@@ -41,6 +42,8 @@ const Login = ({ setLogin, isLogged }) => {
 
     if (user.length > 0) {
       setLogin(user[0]);
+    } else {
+      setError('O usuário e senha estão incorretos')
     }
   }
 
@@ -103,5 +106,10 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(login(userInfo));
   },
 });
+
+Login.propTypes = {
+  isLogged: PropTypes.bool.isRequired,
+  setLogin: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

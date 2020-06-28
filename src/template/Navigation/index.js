@@ -7,6 +7,7 @@ import {
 } from '@material-ui/core';
 import StyledAppBar from '../../components/AppBar/style';
 import { logout } from '../../actions/loginActions';
+import PropTypes from 'prop-types';
 
 const Navigation = ({ isLogged, setLogout }) => {
   const history = useHistory();
@@ -60,5 +61,10 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(logout());
   },
 });
+
+Navigation.propTypes = {
+  isLogged: PropTypes.bool.isRequired,
+  setLogout: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
