@@ -59,7 +59,7 @@ const Login = ({ setLogin, isLogged }) => {
         <Grid item xs={6} style={{ backgroundImage: `${images[randomNum]}`, backgroundPosition: 'top' }} />
         <Grid
           item
-          xs={6}
+          md={6}
           style={{
             backgroundColor: '#171717',
             height: '100vh',
