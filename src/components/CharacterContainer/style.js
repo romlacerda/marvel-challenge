@@ -1,7 +1,10 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
+    width: '100vw', 
+    height: '50vh', 
+    position: 'relative',
     '& .MuiTypography-root': {
       color: '#FFF',
     },
@@ -10,3 +13,5 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
+export default useStyles;

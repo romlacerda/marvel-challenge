@@ -5,4 +5,4 @@ function getUser(userInfo) {
   return hasUser;
 }
 
-export { getUser };
+export default getUser;
