@@ -26,7 +26,7 @@ const Home = () => {
 
   return (
     <Box>
-      <Grid container>
+      <Grid container data-testid="resolved">
         { character && character.thumbnail
           && (
             <CharacterContainer

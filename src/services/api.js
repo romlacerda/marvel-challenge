@@ -1,9 +1,4 @@
-import axios from 'axios';
 import MD5 from 'crypto-js/md5';
-
-const api = axios.create({
-  baseURL: 'http://gateway.marvel.com/v1/public',
-});
 
 const env = {
   ts: 'thesoer',
@@ -14,4 +9,3 @@ const env = {
 const hash = MD5(env.ts + env.private_apikey + env.public_apikey);
 
 export const queryString = `ts=${env.ts}&apikey=${env.public_apikey}&hash=${hash}`;
-export default api;

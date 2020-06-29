@@ -4,7 +4,6 @@ import { Redirect, Route } from 'react-router';
 
 const AuthRoute = ({ children, ...rest }) => {
   const isLogged = Boolean(localStorage.getItem('isLogged'));
-  console.log(isLogged);
   return (
 
     <Route

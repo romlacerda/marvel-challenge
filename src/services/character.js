@@ -1,5 +1,8 @@
-import api, { queryString } from './api';
+import { queryString } from './api';
+import { get } from './';
 
-export const fetchCharacter = (id) => api.get(`/characters/${id}?${queryString}`);
+const endpoint = 'http://gateway.marvel.com/v1/public';
 
-export const getComics = (heroId, orderBy) => api.get(`/characters/${heroId}/comics?orderBy=${orderBy}&${queryString}`);
+export const fetchCharacter = (id) => get(`${endpoint}/characters/${id}?${queryString}`);
+
+export const getComics = (heroId, orderBy) => get(`${endpoint}/characters/${heroId}/comics?orderBy=${orderBy}&${queryString}`);

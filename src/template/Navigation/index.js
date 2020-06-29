@@ -63,7 +63,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 Navigation.propTypes = {
-  isLogged: PropTypes.bool.isRequired,
+  // isLogged: PropTypes.bool.isRequired,
   setLogout: PropTypes.func.isRequired,
 };
 
