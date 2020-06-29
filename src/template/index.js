@@ -3,14 +3,15 @@ import Navigation from './Navigation';
 import PropTypes from 'prop-types';
 
 const Template = ({ children }) => {
-  const isLogged = Boolean(localStorage.getItem('isLogged'));
-
+  const isLogged = localStorage.getItem('isLogged');
   return (
     <>
-      { isLogged && (
+      { isLogged == "true" && (
+      <>
       <Navigation />
-      ) }
       {children}
+      </>
+      ) }
     </>
   );
 };

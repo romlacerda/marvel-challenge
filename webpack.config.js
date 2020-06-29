@@ -5,9 +5,11 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
+    publicPath: '/'
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'public'),
+    historyApiFallback: true
   },
   module: {
     rules: [

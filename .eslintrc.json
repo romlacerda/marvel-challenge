@@ -23,5 +23,13 @@
     ],
     "rules": {
         "react/jsx-filename-extension": [0],
+        "max-len": ["warn", {
+            "code": 100,
+            "ignoreRegExpLiterals": true,
+            "ignoreComments": true,
+            "ignoreTrailingComments": true,
+            "ignoreTemplateLiterals": true,
+            "ignoreStrings": true
+          }]
     }
 }

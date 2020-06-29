@@ -331,7 +331,6 @@ test('fetchs and display character data', async () => {
 
   const chars = await fetchCharacter(heroId);
 
-  console.log(chars);
   expect(chars).toEqual(
     {
       data: {
@@ -662,4 +661,3 @@ test('fetchs and display character data', async () => {
   expect(mockAxios.get).toHaveBeenCalledTimes(1);
   expect(mockAxios.get).toHaveBeenCalledWith(`http://gateway.marvel.com/v1/public/characters/${heroId}?ts=thesoer&apikey=96e3274cf3039b0f54dff62968bf9e0c&hash=29afd7900598bf5909d98cb452365ec2`);
 });
-

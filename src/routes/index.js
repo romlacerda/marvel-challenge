@@ -8,7 +8,7 @@ import Template from '../template';
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-      <Route path="/login">
+      <Route path="/login" exact>
         <Login />
       </Route>
       <AuthRoute path="/" exact>

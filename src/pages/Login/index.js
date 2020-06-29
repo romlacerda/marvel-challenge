@@ -5,13 +5,13 @@ import {
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import DoubleArrowIcon from '@material-ui/icons/DoubleArrow';
+import PropTypes from 'prop-types';
 import StyledTextField from '../../components/TextField/style';
 import StyledButton from '../../components/Button/style';
 import { login } from '../../actions/loginActions';
 import Alert from '../../components/Alert';
 import getUser from '../../helper/utils';
 import MarvelLogo from '../../assets/marvel.png';
-import PropTypes from 'prop-types';
 
 const images = ['url(../xmen.jpg)', 'url(../spider.png)'];
 const randomNum = Math.floor(Math.random() * images.length);
@@ -43,7 +43,7 @@ const Login = ({ setLogin, isLogged }) => {
     if (user.length > 0) {
       setLogin(user[0]);
     } else {
-      setError('O usuário e senha estão incorretos')
+      setError('O usuário e senha estão incorretos');
     }
   }
 
@@ -108,7 +108,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 Login.propTypes = {
-  isLogged: PropTypes.bool.isRequired,
+  isLogged: PropTypes.string.isRequired,
   setLogin: PropTypes.func.isRequired,
 };
 
