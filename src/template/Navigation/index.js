@@ -5,9 +5,9 @@ import { useHistory } from 'react-router-dom';
 import {
   Avatar, Box, Toolbar, Typography, Grid, IconButton,
 } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import StyledAppBar from '../../components/AppBar/style';
 import { logout } from '../../actions/loginActions';
-import PropTypes from 'prop-types';
 
 const Navigation = ({ isLogged, setLogout }) => {
   const history = useHistory();

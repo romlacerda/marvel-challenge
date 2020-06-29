@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.4/libexec/bin/yarn.js add @testing-library/testing-dom -D
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.22.4/libexec/bin/yarn.js eslint:fix
 
 PATH: 
   /Users/romulolacerda/.rvm/gems/ruby-2.7.1/bin:/Users/romulolacerda/.rvm/gems/ruby-2.7.1@global/bin:/Users/romulolacerda/.rvm/rubies/ruby-2.7.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/romulolacerda/Library/Android/sdk/platform-tools:/Users/romulolacerda/Library/Android/sdk/tools:/Users/romulolacerda/Library/Android/sdk/tools/bin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/romulolacerda/.rvm/gems/ruby-2.7.1/bin:/Users/romulolacerda/.rvm/gems/ruby-2.7.1@global/bin:/Users/romulolacerda/.rvm/rubies/ruby-2.7.1/bin:/Users/romulolacerda/.zinit/polaris/sbin:/Users/romulolacerda/.zinit/polaris/bin:/Users/romulolacerda/.zinit/polaris/usr/sbin:/Users/romulolacerda/.zinit/polaris/usr/bin:/Users/romulolacerda/Android/Sdk/emulator:/Users/romulolacerda/Android/Sdk/tools:/Users/romulolacerda/Android/Sdk/tools/bin:/Users/romulolacerda/Android/Sdk/platform-tools:/Users/romulolacerda/.rvm/bin:/Users/romulolacerda/Android/Sdk/emulator:/Users/romulolacerda/Android/Sdk/tools:/Users/romulolacerda/Android/Sdk/tools/bin:/Users/romulolacerda/Android/Sdk/platform-tools
@@ -14,17 +14,12 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@testing-library%2ftesting-dom: Not found
-      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:66987:18)
-      at Request.self.callback (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:140748:22)
-      at Request.emit (events.js:310:20)
-      at Request.<anonymous> (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:141720:10)
-      at Request.emit (events.js:310:20)
-      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:141642:12)
-      at Object.onceWrapper (events.js:416:28)
-      at IncomingMessage.emit (events.js:322:22)
-      at endReadableNT (_stream_readable.js:1187:12)
-      at processTicksAndRejections (internal/process/task_queues.js:84:21)
+  SyntaxError: /Users/romulolacerda/www/marvel-challenge/package.json: Unexpected token } in JSON at position 1096
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:310:30)
+      at /usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:321:13
 
 npm manifest: 
   {
@@ -35,7 +30,9 @@ npm manifest:
     "scripts": {
       "dev": "webpack-dev-server --mode development",
       "build": "webpack --mode production",
-      "test": "jest"
+      "test": "jest",
+      "eslint": "eslint -c .eslintrc.json src/",
+      "eslint:fix": "eslint -c .eslintrc.json src/ --fix"
     },
     "dependencies": {
       "@babel/core": "^7.10.3",
@@ -60,11 +57,13 @@ npm manifest:
       "redux-token-auth": "^0.19.0",
       "styled-components": "^5.1.1",
       "webpack": "^4.43.0",
-      "webpack-cli": "^3.3.12"
+      "webpack-cli": "^3.3.12",
+      "prop-types": "^15.7.2",
     },
     "devDependencies": {
       "@babel/plugin-transform-runtime": "^7.10.3",
       "@testing-library/dom": "^7.19.0",
+      "@testing-library/jest-dom": "^5.11.0",
       "@testing-library/react": "^10.4.3",
       "axios-mock-adapter": "^1.18.1",
       "docz": "^2.3.1",
@@ -75,7 +74,6 @@ npm manifest:
       "eslint-plugin-react": "^7.20.0",
       "eslint-plugin-react-hooks": "^4.0.4",
       "jest": "^26.1.0",
-      "prop-types": "^15.7.2",
       "webpack-dev-server": "^3.11.0"
     }
   }
@@ -2462,6 +2460,22 @@ Lockfile:
       dom-accessibility-api "^0.4.5"
       pretty-format "^25.5.0"
   
+  "@testing-library/jest-dom@^5.11.0":
+    version "5.11.0"
+    resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-5.11.0.tgz#1439f08dc85ce7c6d3bbad0ee5d53b2206f55768"
+    integrity sha512-mhaCySy7dZlyfcxcYy+0jLllODHEiHkVdmwQ00wD0HrWiSx0fSVHz/0WmdlRkvhfSOuqsRsBUreXOtBvruWGQA==
+    dependencies:
+      "@babel/runtime" "^7.9.2"
+      "@types/testing-library__jest-dom" "^5.9.1"
+      aria-query "^4.2.2"
+      chalk "^3.0.0"
+      css "^2.2.4"
+      css.escape "^1.5.1"
+      jest-diff "^25.1.0"
+      jest-matcher-utils "^25.1.0"
+      lodash "^4.17.15"
+      redent "^3.0.0"
+  
   "@testing-library/react@^10.4.3":
     version "10.4.3"
     resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-10.4.3.tgz#c6f356688cffc51f6b35385583d664bb11a161f4"
@@ -2626,6 +2640,14 @@ Lockfile:
       "@types/istanbul-lib-coverage" "*"
       "@types/istanbul-lib-report" "*"
   
+  "@types/jest@*":
+    version "26.0.3"
+    resolved "https://registry.yarnpkg.com/@types/jest/-/jest-26.0.3.tgz#79534e0e94857171c0edc596db0ebe7cb7863251"
+    integrity sha512-v89ga1clpVL/Y1+YI0eIu1VMW+KU7Xl8PhylVtDKVWaSUHBHYPLXMQGBdrpHewaKoTvlXkksbYqPgz8b4cmRZg==
+    dependencies:
+      jest-diff "^25.2.1"
+      pretty-format "^25.2.1"
+  
   "@types/json-schema@^7.0.3", "@types/json-schema@^7.0.4":
     version "7.0.5"
     resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.5.tgz#dcce4430e64b443ba8945f0290fb564ad5bac6dd"
@@ -2756,6 +2778,13 @@ Lockfile:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
     integrity sha512-l42BggppR6zLmpfU6fq9HEa2oGPEI8yrSPL3GITjfRInppYFahObbIQOQK3UGxEnyQpltZLaPe75046NOZQikw==
+  
+  "@types/testing-library__jest-dom@^5.9.1":
+    version "5.9.1"
+    resolved "https://registry.yarnpkg.com/@types/testing-library__jest-dom/-/testing-library__jest-dom-5.9.1.tgz#aba5ee062b7880f69c212ef769389f30752806e5"
+    integrity sha512-yYn5EKHO3MPEMSOrcAb1dLWY+68CG29LiXKsWmmpVHqoP5+ZRiAVLyUHvPNrO2dABDdUGZvavMsaGpWNjM6N2g==
+    dependencies:
+      "@types/jest" "*"
   
   "@types/tmp@^0.0.33":
     version "0.0.33"
@@ -5883,6 +5912,21 @@ Lockfile:
     version "3.3.0"
     resolved "https://registry.yarnpkg.com/css-what/-/css-what-3.3.0.tgz#10fec696a9ece2e591ac772d759aacabac38cd39"
     integrity sha512-pv9JPyatiPaQ6pf4OvD/dbfm0o5LviWmwxNWzblYf/1u9QZd0ihV+PMwy5jdQWQ3349kZmKEx9WXuSka2dM4cg==
+  
+  css.escape@^1.5.1:
+    version "1.5.1"
+    resolved "https://registry.yarnpkg.com/css.escape/-/css.escape-1.5.1.tgz#42e27d4fa04ae32f931a4b4d4191fa9cddee97cb"
+    integrity sha1-QuJ9T6BK4y+TGktNQZH6nN3ul8s=
+  
+  css@^2.2.4:
+    version "2.2.4"
+    resolved "https://registry.yarnpkg.com/css/-/css-2.2.4.tgz#c646755c73971f2bba6a601e2cf2fd71b1298929"
+    integrity sha512-oUnjmWpy0niI3x/mPL8dVEI1l7MnG3+HHyRPHf+YFSbK+svOhXpmSOcDURUh2aOCgl2grzrOPt1nHLuCVFULLw==
+    dependencies:
+      inherits "^2.0.3"
+      source-map "^0.6.1"
+      source-map-resolve "^0.5.2"
+      urix "^0.1.0"
   
   cssesc@^3.0.0:
     version "3.0.0"
@@ -10873,7 +10917,7 @@ Lockfile:
       micromatch "^4.0.2"
       pretty-format "^26.1.0"
   
-  jest-diff@^25.5.0:
+  jest-diff@^25.1.0, jest-diff@^25.2.1, jest-diff@^25.5.0:
     version "25.5.0"
     resolved "https://registry.yarnpkg.com/jest-diff/-/jest-diff-25.5.0.tgz#1dd26ed64f96667c068cef026b677dfa01afcfa9"
     integrity sha512-z1kygetuPiREYdNIumRpAHY6RXiGmp70YHptjdaxTWGmA085W3iCnXNx0DhflK3vwrKmrRWyY1wUpkPMVxMK7A==
@@ -10999,6 +11043,16 @@ Lockfile:
     dependencies:
       jest-get-type "^26.0.0"
       pretty-format "^26.1.0"
+  
+  jest-matcher-utils@^25.1.0:
+    version "25.5.0"
+    resolved "https://registry.yarnpkg.com/jest-matcher-utils/-/jest-matcher-utils-25.5.0.tgz#fbc98a12d730e5d2453d7f1ed4a4d948e34b7867"
+    integrity sha512-VWI269+9JS5cpndnpCwm7dy7JtGQT30UHfrnM3mXl22gHGt/b7NkjBqXfbhZ8V4B7ANUsjK18PlSBmG0YH7gjw==
+    dependencies:
+      chalk "^3.0.0"
+      jest-diff "^25.5.0"
+      jest-get-type "^25.2.6"
+      pretty-format "^25.5.0"
   
   jest-matcher-utils@^26.1.0:
     version "26.1.0"
@@ -14497,7 +14551,7 @@ Lockfile:
       ansi-styles "^3.2.0"
       react-is "^16.8.4"
   
-  pretty-format@^25.5.0:
+  pretty-format@^25.2.1, pretty-format@^25.5.0:
     version "25.5.0"
     resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-25.5.0.tgz#7873c1d774f682c34b8d48b6743a2bf2ac55791a"
     integrity sha512-kbo/kq2LQ/A/is0PQwsEHM7Ca6//bGPPvU6UnsdDRSKTWxT/ru/xb88v4BJf6a69H+uTytOEsTusT9ksd/1iWQ==
@@ -16545,7 +16599,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/source-list-map/-/source-list-map-2.0.1.tgz#3993bd873bfc48479cca9ea3a547835c7c154b34"
     integrity sha512-qnQ7gVMxGNxsiL4lEuJwe/To8UnK7fAnmbGEEH8RpLouuKbeEm0lhbQVFIrNSuB+G7tVrAlVsZgETT5nljf+Iw==
   
-  source-map-resolve@^0.5.0:
+  source-map-resolve@^0.5.0, source-map-resolve@^0.5.2:
     version "0.5.3"
     resolved "https://registry.yarnpkg.com/source-map-resolve/-/source-map-resolve-0.5.3.tgz#190866bece7553e1f8f267a2ee82c606b5509a1a"
     integrity sha512-Htz+RnsXWk5+P2slx5Jh3Q66vhQj1Cllm0zvnaY98+NFx+Dv2CF/f5O/t8x+KaNdrdIAsruNzoh/KpialbqAnw==

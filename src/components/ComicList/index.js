@@ -3,6 +3,7 @@ import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import React from 'react';
 import Link from '@material-ui/core/Link';
+import PropTypes from 'prop-types';
 
 import useStyles from './style';
 
@@ -28,6 +29,10 @@ const ComicList = ({ comics }) => {
       </GridList>
     </div>
   );
+};
+
+ComicList.propTypes = {
+  comics: PropTypes.array.isRequired,
 };
 
 export default ComicList;

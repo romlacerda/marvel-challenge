@@ -1,15 +1,15 @@
 import React from 'react';
-import Navigation from './Navigation';
 import PropTypes from 'prop-types';
+import Navigation from './Navigation';
 
 const Template = ({ children }) => {
   const isLogged = localStorage.getItem('isLogged');
   return (
     <>
-      { isLogged == "true" && (
+      { isLogged == 'true' && (
       <>
-      <Navigation />
-      {children}
+        <Navigation />
+        {children}
       </>
       ) }
     </>
@@ -17,8 +17,7 @@ const Template = ({ children }) => {
 };
 
 Template.propTypes = {
-  children: PropTypes.node.isRequired
-}
-
+  children: PropTypes.node.isRequired,
+};
 
 export default Template;

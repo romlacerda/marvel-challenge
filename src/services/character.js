@@ -1,5 +1,5 @@
 import { queryString } from './api';
-import { get } from './';
+import { get } from '.';
 
 const endpoint = 'http://gateway.marvel.com/v1/public';
 

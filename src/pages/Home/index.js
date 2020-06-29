@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Grid, Typography, Box, CardActionArea, CardMedia, CardContent,
+  Grid, Box,
 } from '@material-ui/core';
 import { connect } from 'react-redux';
 import ComicList from '../../components/ComicList';

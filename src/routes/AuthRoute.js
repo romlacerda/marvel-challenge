@@ -1,6 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { Redirect, Route } from 'react-router';
+import { Route } from 'react-router';
 import Login from '../pages/Login';
 
 const AuthRoute = ({ children, ...rest }) => {
@@ -10,7 +9,7 @@ const AuthRoute = ({ children, ...rest }) => {
     <Route
       {...rest}
       render={
-        () => (isLogged == "true" ? (
+        () => (isLogged == 'true' ? (
           children
         ) : (
           <Route {...rest} component={Login} />

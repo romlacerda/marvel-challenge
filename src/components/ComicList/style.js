@@ -23,9 +23,9 @@ const useStyles = makeStyles((theme) => ({
     height: '100% !important',
     padding: '8px !important',
 
-    ['@media (max-width:767px)']: {
-      width: '60% !important'
-    }
+    '@media (max-width:767px)': {
+      width: '60% !important',
+    },
   },
 
 }));

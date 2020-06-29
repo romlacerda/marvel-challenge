@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Grid, Typography, Box, Container,
 } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import useStyles from './style';
 import CharacterBackground from '../CharacterBackground/style';
 import Fade from '../Fade/style';
@@ -16,7 +17,7 @@ const CharacterContainer = ({
       xs={12}
       classes={{ root: classes.root }}
     >
-      <CharacterBackground src={`${imgPath}.${imgExtension}`} alt={name}/>
+      <CharacterBackground src={`${imgPath}.${imgExtension}`} alt={name} />
       <Box mt={15} style={{ position: 'absolute', top: '0' }}>
         <Container>
           <Grid item xs={12}>
@@ -30,4 +31,11 @@ const CharacterContainer = ({
   );
 };
 
+CharacterContainer.propTypes = {
+  imgPath: PropTypes.string.isRequired,
+  imgExtension: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+
+};
 export default CharacterContainer;
