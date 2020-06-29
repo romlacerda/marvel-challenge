@@ -2,8 +2,8 @@
 
 ![Login](https://user-images.githubusercontent.com/17368983/86044535-97fecf00-ba20-11ea-960b-b9e037535f80.png)
 ![Home](https://user-images.githubusercontent.com/17368983/86044657-c5e41380-ba20-11ea-823d-7d5000c3c4c4.png)
-![MobileLogin](https://user-images.githubusercontent.com/17368983/86044797-02177400-ba21-11ea-951e-5281882bdf37.png)
-![MobileHome](https://user-images.githubusercontent.com/17368983/86044729-e4e2a580-ba20-11ea-8131-ea6a2212d136.png)
+![MobileLogin2](https://user-images.githubusercontent.com/17368983/86045715-5ec75e80-ba22-11ea-97b3-7c1ba7c9b8c7.png)
+![MobileHome2](https://user-images.githubusercontent.com/17368983/86045719-5f5ff500-ba22-11ea-9f35-72d6c642360c.png)
 
 ## Overview
 That's an app that fetch the favorite character of the users list and gets the comics ordered by modified date. I used the Marvel Developer Api. 
